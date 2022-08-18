@@ -15,16 +15,17 @@ export const Project = sequelize.define("projects",{
     type:DataTypes.STRING,
   },
   description:{
-    type:DataTypes.INTEGER,
+    type:DataTypes.STRING,
   },
 });
 
 Project.hasMany(Task,{
   foreignKey:'projectId',
   sourceKey: 'id'
-})
+});
 
 Task.belongsTo(Project,{
   foreignKey:'projectId',
   targetId:'id'
-})
+});
+
